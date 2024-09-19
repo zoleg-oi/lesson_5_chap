@@ -31,9 +31,11 @@ class house:
     # Документирование класса - это важная часть, иначе забудем что имеется в классе
 
     houses_history = []
-    def __new__(cls,*args,**kwargs):
+
+    def __new__(cls, *args, **kwargs):
         cls.houses_history.append(args[0])
         return super().__new__(cls)
+
     def __init__(self, name, number_of_floors):
         self.name = str(name)
         if isinstance(number_of_floors, int):
@@ -134,7 +136,7 @@ h2 = house('ЖК "Акация"', 20)
 print(house.houses_history)
 h3 = house('ЖК "Матрёшки"', 20)
 print(house.houses_history)
-#h4 = house('ЖК "Шишки"', 20)
+# h4 = house('ЖК "Шишки"', 20)
 # Принудительное удаление экземпляров класса
 del h2
 del h3
@@ -142,5 +144,3 @@ print(house.houses_history)
 # после исполнения последней строки кода интерпретатором удаляются все классы из памяти.
 # т.е. если открыть еще один экземпляр класса - h4, то при удалении выведется текст прощания,
 # последовательность вывода прощания будет аналогична последовательности создания экземпляров класса
-
-
